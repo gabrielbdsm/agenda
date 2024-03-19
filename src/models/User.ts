@@ -1,17 +1,17 @@
 import {connection,model,Model,Schema} from "mongoose";
 
 interface  UserType  {
-    username : string,
-    email: string,
-    password: string
+username : string,
+email: string,
+password: string
 }
 
 const modelSchema = new Schema<UserType>(
-    {
-        username : {type : String ,required: true},
-        email : {type : String , required : true},
-        password : {type:String ,required: true}
-    })
+{
+username : {type : String ,required: true},
+email : {type : String , required : true},
+password : {type:String ,required: true}
+})
 
 const modelName ="users"
 

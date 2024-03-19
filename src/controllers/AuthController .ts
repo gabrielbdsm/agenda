@@ -99,16 +99,16 @@ export const login =  async(req : Request , res : Response)=>{
             username : existingEmailOrUsernameField.username
         },
         process.env.SECRETKEY as string,
-       { expiresIn: '2h'}
+       { expiresIn: '1h'}
         
         )
 
         res.setHeader("Set-Cookie", cookie.serialize("token", token, {
-            httpOnly: true, 
+            httpOnly: false, 
             maxAge: 3600, 
             sameSite: "strict",
             secure: process.env.NODE_ENV === "production",
       
         }));
-    res.redirect("agenda")
+    res.redirect("Lista_tarefa")
 }
