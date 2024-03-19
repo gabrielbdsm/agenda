@@ -9,18 +9,27 @@
 </head>
 <body>
     <form action="" method="post">
-        <label for="username"></label>
-        <input name="username" type="text" placeholder="Digite o nome de usuário">
-        <span>{{userError}}</span>
+        <div class="nome input_container">
+            <label for="username">Nome</label>
+            <input name="username" type="text" placeholder="Digite o nome de usuário">
+            <span>{{userError}}</span>
+        </div>
         
-        <label for="email"></label>
-        <input name="email" type="email" placeholder="Digite seu email">
-        <span>{{emailError}}</span>
+        <div class="email input_container">
+            <label for="email">Email</label>
+            <input name="email" type="email" placeholder="Digite seu email">
+            <span>{{emailError}}</span>
+        </div>
 
-        <label for="password"></label>
-        <input name="password" type="password" placeholder="Digite sua senha">
-        <label for="ConfirmPassword"></label>
-        <input name="ConfirmPassword" type="password" placeholder="Confirme sua senha">
+        <div class="password input_container">
+            <label for="password">Senha</label>
+            <input name="password" type="password" placeholder="Digite sua senha">
+        </div>
+
+        <div class="password input_container">
+            <label for="ConfirmPassword">Confirme sua Senha</label>
+            <input name="ConfirmPassword" type="password" placeholder="Confirme sua senha">
+        </div>
         {{#passwordError}}
             <ul>
                 <li>{{.}}</li>
@@ -28,7 +37,7 @@
         {{/passwordError}}
 
         
-        <input type="submit" value="Entrar">
+        <input class="button" type="submit" value="Entrar">
     </form>
 </body>
 </html>
