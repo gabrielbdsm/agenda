@@ -9,13 +9,18 @@
 </head>
 <body>
     <form action="" method="post">
-        <label for="emailOrUsernameField"></label>
-        <input name="emailOrUsernameField" type="text" placeholder="Digite email ou username ">
-        <label for="password"></label>
-        <input name="password" type="password" placeholder="Digite sua senha">
+        <div class="input_container">
+            <label for="emailOrUsernameField">Nome</label>
+            <input name="emailOrUsernameField" type="text" placeholder="Digite email ou username ">
+        </div>
+        
+        <div class="input_container">
+            <label for="password">Senha</label>
+            <input name="password" type="password" placeholder="Digite sua senha">
+        </div>
         <span>{{error}}</span>
         
-        <input type="submit" value="Entrar">
+        <input class="button" type="submit" value="Entrar">
     </form>
 </body>
 </html>
