@@ -2,7 +2,10 @@ import { Request , Response } from "express"
 import UserModel  from "../models/User"
 import {registreValidator} from "../validators/AuthValidator"
 import bcrypt from "bcrypt"
-
+import JWT from 'jsonwebtoken'
+import dotenv from 'dotenv';
+import cookie from "cookie"
+dotenv.config();
 
 
 export  const showRegistreForm = async(req : Request , res: Response)=>{
@@ -62,4 +65,50 @@ export  const registre = async(req : Request , res: Response)=>{
     });
     
     
+}
+
+export const showLoginForm = async(req : Request , res : Response)=>{
+    res.render("login")
+}
+
+
+export const login =  async(req : Request , res : Response)=>{
+    const data = req.body
+    const {emailOrUsernameField  , password} = data
+
+    const existingEmailOrUsernameField =await UserModel.findOne({
+        $or: [{email: emailOrUsernameField } , {username : emailOrUsernameField}]
+     })
+    
+    if(existingEmailOrUsernameField){
+        const validatePassword =await bcrypt.compare(password , existingEmailOrUsernameField.password ) 
+        
+        if (!validatePassword) {
+            res.status(400).render("login",{  error:"username/email ou senha incorreta"})
+            return
+        }
+        
+    }else{
+        res.status(400).render("login",{  error:"username/email ou senha incorreta"})
+        return
+    }
+
+    const token = JWT.sign(
+        {
+            id: existingEmailOrUsernameField._id,
+            username : existingEmailOrUsernameField.username
+        },
+        process.env.SECRETKEY as string,
+       { expiresIn: '2h'}
+        
+        )
+
+        res.setHeader("Set-Cookie", cookie.serialize("token", token, {
+            httpOnly: true, 
+            maxAge: 3600, 
+            sameSite: "strict",
+            secure: process.env.NODE_ENV === "production",
+      
+        }));
+    res.redirect("agenda")
 }
