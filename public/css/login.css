@@ -37,3 +37,7 @@ input {
     cursor: pointer;
     margin-top: 8px;
 }
+
+.error {
+    color: red;
+}
