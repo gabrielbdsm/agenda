@@ -1,3 +1,9 @@
+Logout.addEventListener('click', async function(event) {
+  const response = await fetch("/logout", {
+    method: 'GET'
+})
+  window.location.href = '/login';
+})
 eventForm.addEventListener('submit',async function(event) {
     const tasklist = document.getElementById('Lista_tarefa');
     
