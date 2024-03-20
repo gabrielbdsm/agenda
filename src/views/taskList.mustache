@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lista de tarefas</title>
+    <link rel="stylesheet"  href="/css/list.css">
+</head>
+<body>
+
+    <section >
+    <div id= "tela">
+        <button  id= "Logout">Logout</button>
+        <h2>lista de tarefas</h2>
+        <form id="eventForm">
+
+            <label for="time">tempo:</label>
+            <input type="time" id="time" name="time">
+
+            <label for="event">Evento:</label>
+            <input type="text" id="event" name="event">
+
+            <button type="submit">Adicionar Evento</button>
+        </form>
+
+    </div>
+        <table id="Lista_tarefa">
+            <tr>
+            <th>Hora</th>
+            <th>Tarefa</th>
+            <th>ação</th>
+            </tr>
+        </table>
+    </section>
+<script src="/script/taskList.js"></script>
+</body>
+</html>
