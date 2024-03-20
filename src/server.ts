@@ -5,10 +5,12 @@ import router from "./routes"
 import path from 'path';
 import mustache from 'mustache-express';
 import {mongoConnect} from "./database/mongo"
+import cookieParser from "cookie-parser"
 dotenv.config();
 mongoConnect()
 const app = express()
 
+app.use(cookieParser());
 app.set('view engine', 'mustache');
 app.set('views', path.join(__dirname, 'views'));
 app.engine('mustache', mustache());

@@ -112,3 +112,10 @@ export const login =  async(req : Request , res : Response)=>{
         }));
     res.redirect("Lista_tarefa")
 }
+
+
+export const logout = (req: Request, res: Response) => {
+    
+    res.setHeader("Set-Cookie", "token=; Max-Age=0; SameSite=None; Secure");
+    res.redirect("login");
+  };
