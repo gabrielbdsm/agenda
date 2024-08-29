@@ -13,13 +13,13 @@ body {
   justify-content: center;
   background-color: rgb(16, 16, 16);
 }
-
 section {
   background-color: rgb(163, 163, 163);
   height: 80%;
   width: 80%;
   position: relative;
 }
+
 section h2 {
   margin-top: 0;
   text-transform: capitalize;
