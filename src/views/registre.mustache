@@ -1,43 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro</title>
-    <link rel="stylesheet"  href="/css/registre.css">
-</head>
-<body>
-    <form action="" method="post">
+    <link rel="stylesheet" href="/css/registre.css" />
+  </head>
+  <body>
+    <section>
+      <form action="" method="post">
         <div class="nome input_container">
-            <label for="username">Nome</label>
-            <input name="username" type="text" placeholder="Digite o nome de usuário">
-            <span>{{userError}}</span>
+          <label for="username">Nome</label>
+          <input
+            name="username"
+            type="text"
+            placeholder="Digite o nome de usuário"
+          />
+          <span>{{ userError }}</span>
         </div>
-        
+
         <div class="email input_container">
-            <label for="email">Email</label>
-            <input name="email" type="email" placeholder="Digite seu email">
-            <span>{{emailError}}</span>
+          <label for="email">Email</label>
+          <input name="email" type="email" placeholder="Digite seu email" />
+          <span>{{ emailError }}</span>
         </div>
 
         <div class="password input_container">
-            <label for="password">Senha</label>
-            <input name="password" type="password" placeholder="Digite sua senha">
+          <label for="password">Senha</label>
+          <input
+            name="password"
+            type="password"
+            placeholder="Digite sua senha"
+          />
         </div>
 
         <div class="password input_container">
-            <label for="ConfirmPassword">Confirme sua Senha</label>
-            <input name="ConfirmPassword" type="password" placeholder="Confirme sua senha">
+          <label for="ConfirmPassword">Confirme sua Senha</label>
+          <input
+            name="ConfirmPassword"
+            type="password"
+            placeholder="Confirme sua senha"
+          />
         </div>
         {{#passwordError}}
-            <ul>
-                <li class="error">{{.}}</li>
-            </ul>
+        <ul>
+          <li class="error">{{.}}</li>
+        </ul>
         {{/passwordError}}
 
-        
-        <input class="button" type="submit" value="Entrar">
-    </form>
-</body>
+        <input class="button" type="submit" value="cadrastrar" />
+      </form>
+
+      <a href="/Login"><button class="button">Login</button><</a>
+    </section>
+  </body>
 </html>
